@@ -86,7 +86,15 @@ sudo chmod +x generate_all_urdfs.sh
 ### Start Indy description
 
 ```
+roslaunch indy_description indy_description.launch indy_type:=indy7
+
 roslaunch indy_description indy_description.launch indy_type:=indy7_v2
+```
+
+### Indy7 + IndyEye model
+
+```
+roslaunch indy_description indy_description.launch indy_type:=indy7 indy_eye:=true
 ```
 
 ### Simulation Robot
