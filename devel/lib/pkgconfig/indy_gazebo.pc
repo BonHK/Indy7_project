@@ -1,8 +1,0 @@
-prefix=/home/kriso/Indy7_project/devel
-
-Name: indy_gazebo
-Description: Description of indy_gazebo
-Version: 1.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

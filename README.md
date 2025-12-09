@@ -1,6 +1,9 @@
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 # Indy7_project
 =======
+=======
+>>>>>>> Stashed changes
 # Indy ROS1
 
 ## Introduction
@@ -179,4 +182,7 @@ Start servo with keyboard
 ```
 roslaunch indy_driver indy_servo_keyboard.launch is_sim:=false
 ```
+<<<<<<< Updated upstream
 >>>>>>> 38a45df459802af19e23ca6cb9cc8deeaccc7cf5
+=======
+>>>>>>> Stashed changes

@@ -1,0 +1,7 @@
+build/
+devel/
+<<<<<<< Updated upstream
+.catkin_workspace/
+=======
+.catkin_workspace
+>>>>>>> Stashed changes

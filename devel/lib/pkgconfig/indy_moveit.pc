@@ -1,8 +1,0 @@
-prefix=/home/kriso/Indy7_project/devel
-
-Name: indy_moveit
-Description: Description of indy_moveit
-Version: 1.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

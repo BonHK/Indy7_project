@@ -1,2 +1,0 @@
-indy_description:indy_driver:indy_gazebo:indy_moveit
--DCATKIN_DEVEL_PREFIX=/home/kriso/Indy7_project/devel -DCMAKE_INSTALL_PREFIX=/home/kriso/Indy7_project/install -G Unix Makefiles

@@ -1,8 +1,0 @@
-prefix=/home/kriso/Indy7_project/install
-
-Name: indy_description
-Description: Description of indy_description
-Version: 1.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
