@@ -88,7 +88,6 @@ sudo chmod +x generate_all_urdfs.sh
 ```
 roslaunch indy_description indy_description.launch indy_type:=indy7
 
-roslaunch indy_description indy_description.launch indy_type:=indy7_v2
 ```
 
 ### Indy7 + IndyEye model
@@ -102,7 +101,7 @@ roslaunch indy_description indy_description.launch indy_type:=indy7 indy_eye:=tr
 **Start Indy Robot**
 
 ```
-roslaunch indy_gazebo indy_gazebo.launch indy_type:=indy7_v2
+roslaunch indy_gazebo indy_gazebo.launch indy_type:=indy7
 ```
 
 
@@ -110,7 +109,7 @@ roslaunch indy_gazebo indy_gazebo.launch indy_type:=indy7_v2
 
 Open new terminal and run following command:
 ```
-roslaunch indy_moveit moveit_gazebo.launch indy_type:=indy7_v2
+roslaunch indy_moveit moveit_gazebo.launch indy_type:=indy7
 ```
 
 **Start Indy with Servoing**
