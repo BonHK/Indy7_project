@@ -1,20 +1,11 @@
-<<<<<<< Updated upstream
-<<<<<<< HEAD
 # Indy7_project
-=======
-=======
->>>>>>> Stashed changes
-# Indy ROS1
+## Indy ROS1
 
 ## Introduction
 
 **Indy** is Neuromeka's flagship cobot model we designed and manufactured. Guaranteeing workers safety based on innovative collision detection algorithms, Indy supports more intuitive direct teaching by impedance control as well as online and offline programming with the teach pendant app running on android tablets.
 
-<center><img src=".img/intro_img.png" width="400" heigh="400"/></center> 
-
-
 This repository contains ROS1 Noetic drivers for Indy7, Indy7V2, IndyRP2, IndyRP2V2, Indy12 and Indy12V2.
-
 
 ## Preparation
 
@@ -97,7 +88,6 @@ sudo chmod +x generate_all_urdfs.sh
 ```
 roslaunch indy_description indy_description.launch indy_type:=indy7_v2
 ```
-<center><img src=".img/description_indy7_v2.png" width="400" heigh="400"/></center>
 
 ### Simulation Robot
 
@@ -107,7 +97,6 @@ roslaunch indy_description indy_description.launch indy_type:=indy7_v2
 roslaunch indy_gazebo indy_gazebo.launch indy_type:=indy7_v2
 ```
 
-<center><img src=".img/gazebo_indy7_v2.png" width="400" heigh="400"/></center>
 
 **Start Indy with MoveIt**
 
@@ -115,7 +104,6 @@ Open new terminal and run following command:
 ```
 roslaunch indy_moveit moveit_gazebo.launch indy_type:=indy7_v2
 ```
-<center><img src=".img/gazebo_moveit_indy7_v2.png" width="800" heigh="400"/></center>
 
 **Start Indy with Servoing**
 Open 2 new terminals and run following commands:
@@ -135,7 +123,6 @@ timeout: 0.0"
 ```
 
 You should see the result as below:
-<center><img src=".img/gazebo_indy7_v2_switch_controller.png" width="800" heigh="400"/></center>
 
 Start servo with keyboard
 
@@ -151,8 +138,6 @@ Start Indy with rviz
 ```
 roslaunch indy_driver indy_bringup.launch indy_ip:=192.168.xxx.xxx rviz:=true
 ```
-<center><img src=".img/rviz_indy7.png" width="400" heigh="400"/></center>
-
 
 **Start Indy with MoveIt**
 
@@ -166,7 +151,6 @@ roslaunch indy_driver indy_bringup.launch indy_ip:=192.168.xxx.xxx
 roslaunch indy_moveit moveit_indy.launch
 ```
 
-<center><img src=".img/moveit_indy7.png" width="800" heigh="400"/></center>
 
 **Start Indy with Servoing**
 
