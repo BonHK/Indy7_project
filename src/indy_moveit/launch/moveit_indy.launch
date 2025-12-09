@@ -1,0 +1,23 @@
+<launch>
+
+  <arg name="prefix" 		  default=""/>
+	<arg name="name" 		    default="indy"/>
+  <arg name="indy_type" 	default="indy7"/>
+  <include file="$(find indy_moveit)/launch/move_group.launch" > 
+    <arg name="prefix" 		  value="$(arg prefix)"/>
+    <arg name="name" 		    value="$(arg name)"/>
+    <arg name="indy_type" 	value="$(arg indy_type)"/>
+  </include>
+  
+  <group if="$(eval arg('indy_type') == 'indyrp2' or arg('indy_type') == 'indyrp2_v2')">
+    <rosparam command="load" file="$(find indy_moveit)/config/joint_names_7dof.yaml" />
+  </group>
+  <group unless="$(eval arg('indy_type') == 'indyrp2' or arg('indy_type') == 'indyrp2_v2')">
+    <rosparam command="load" file="$(find indy_moveit)/config/joint_names_6dof.yaml" />
+  </group>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find indy_moveit)/rviz_config/moveit_indy.rviz"/>
+
+  <node pkg="industrial_robot_client" type="joint_trajectory_action" name="joint_trajectory_action"/>
+
+</launch>

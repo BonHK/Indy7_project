@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="prefix" 		default=""/>
+	<arg name="name" 		default="indy"/>
+    <arg name="indy_type" 	default="indy7"/>
+	<arg name="indy_eye" 	default="false"/>
+	<arg name="rviz" 		default="true"/>
+	<arg name="sim_gazebo"  default="false"/> <!--is sim gazebo?-->
+	<arg name="joint_state" default="true"/> <!--need joint state? -->
+
+	<param name="robot_description" command="$(find xacro)/xacro --inorder '$(find indy_description)/urdf/indy.urdf.xacro'
+		prefix:=$(arg prefix)
+		name:=$(arg name)
+		indy_type:=$(arg indy_type)
+		indy_eye:=$(arg indy_eye)
+		sim_gazebo:=$(arg sim_gazebo)"/>
+
+	<!--joint state-->
+	<group if="$(eval arg('rviz') == true and arg('sim_gazebo') == false and arg('joint_state') == true)">
+		<node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui"/>
+	</group>
+
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+
+	<!--rviz-->
+	<node if="$(arg rviz)" pkg="rviz" type="rviz" name="rviz" args="-d $(find indy_description)/rviz_config/indy.rviz"/>
+
+</launch>

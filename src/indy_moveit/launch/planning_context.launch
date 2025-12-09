@@ -1,0 +1,33 @@
+<launch>
+  <!-- By default we do not overwrite the URDF. Change the following to true to change the default behavior -->
+  <!-- <arg name="load_robot_description" default="false"/> -->
+
+  <!-- The name of the parameter under which the URDF is loaded -->
+  <arg name="robot_description" default="robot_description"/>
+
+  <!-- Load universal robot description format (URDF) -->
+  <!-- <param if="$(arg load_robot_description)" name="$(arg robot_description)" command="$(find xacro)/xacro.py '$(find indy_description)/urdf/indy7.xacro'"/> -->
+
+  <!-- The semantic description that corresponds to the URDF -->
+	<arg name="prefix" 		  default=""/>
+	<arg name="name" 		    default="indy"/>
+  <arg name="indy_type" 	default="indy7"/>
+  <param name="$(arg robot_description)_semantic" command="$(find xacro)/xacro '$(find indy_moveit)/config/indy.srdf.xacro'
+		prefix:=$(arg prefix)
+		name:=$(arg name)
+		indy_type:=$(arg indy_type)"/>
+
+  <!-- Load updated joint limits (override information from URDF) -->
+  <group if="$(eval arg('indy_type') == 'indyrp2' or arg('indy_type') == 'indyrp2_v2')" ns="$(arg robot_description)_planning">
+    <rosparam command="load" file="$(find indy_moveit)/config/joint_limits_7dof.yaml"/>
+  </group>
+  <group unless="$(eval arg('indy_type') == 'indyrp2' or arg('indy_type') == 'indyrp2_v2')" ns="$(arg robot_description)_planning">
+    <rosparam command="load" file="$(find indy_moveit)/config/joint_limits_6dof.yaml"/>
+  </group>
+
+  <!-- Load default settings for kinematics; these settings are overridden by settings in a node's namespace -->
+  <group ns="$(arg robot_description)_kinematics">
+    <rosparam command="load" file="$(find indy_moveit)/config/kinematics.yaml"/>
+  </group>
+  
+</launch>

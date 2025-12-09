@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="prefix" 		  default=""/>
+    <arg name="name" 		  default="indy"/>
+    <arg name="indy_ip"       default=""/>
+    <arg name="indy_type" 	  default="indy7"/>
+    <arg name="indy_eye" 	  default="false"/>
+    <arg name="rviz" 	      default="false"/>
+    <include file="$(find indy_description)/launch/indy_description.launch">
+        <arg name="prefix"      value="$(arg prefix)"/>
+        <arg name="name" 	    value="$(arg name)"/>
+        <arg name="indy_type" 	value="$(arg indy_type)"/>
+        <arg name="indy_eye" 	value="$(arg indy_eye)"/>
+        <arg name="rviz" 		value="$(arg rviz)"/>
+        <arg name="sim_gazebo"  default="false"/>
+        <arg name="joint_state" default="false"/>
+    </include>
+    
+    <param name="indy_ip"      type="str" value="$(arg indy_ip)"/>
+    <param name="indy_type"    type="str" value="$(arg indy_type)"/>
+    <node name="indy_driver_dcp" type="indy_driver_dcp.py" pkg="indy_driver" output="screen"/>
+
+</launch>

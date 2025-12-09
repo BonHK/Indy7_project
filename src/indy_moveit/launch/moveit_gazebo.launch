@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!--warehouse-->
+  <arg name="db" default="false" />
+  <arg name="db_path" default="$(find indy_moveit)/default_warehouse_mongo_db" />
+  <include file="$(find indy_moveit)/launch/default_warehouse_db.launch" if="$(arg db)">
+    <arg name="moveit_warehouse_database_path" value="$(arg db_path)"/>
+  </include>
+
+  <!--move group for gazebo-->
+	<arg name="prefix" 		  default=""/>
+	<arg name="name" 		    default="indy"/>
+  <arg name="indy_type" 	default="indy7"/>
+
+  <include file="$(find indy_moveit)/launch/move_group.launch" > 
+    <arg name="prefix" 		  value="$(arg prefix)"/>
+    <arg name="name" 		    value="$(arg name)"/>
+    <arg name="indy_type" 	value="$(arg indy_type)"/>
+    <arg name="sim_gazebo" 	default="true"/>
+  </include>
+
+  <!--rviz-->
+  <include file="$(find indy_moveit)/launch/moveit_rviz.launch">
+    <arg name="config" value="true"/>
+  </include>
+
+</launch>

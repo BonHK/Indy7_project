@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="is_sim" default="true"/>
+    <node name="servo_keyboard_input" type="servo_keyboard_input.py" pkg="indy_driver" output="screen">
+        <param name="~is_sim" type="bool" value="$(arg is_sim)"/>
+    </node>
+</launch>
