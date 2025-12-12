@@ -18,3 +18,4 @@
 * `indy_gazebo/launch/indy_gazebo.launch`
 
 
+<img width="2880" height="1800" alt="Image" src="https://github.com/user-attachments/assets/2a8411aa-e8ee-45d4-83a6-df04cb845806" />
