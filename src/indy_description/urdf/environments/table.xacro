@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro">
+
+<xacro:macro name="work_table" params="name parent xyz rpy">
+
+  <link name="${name}_link">
+    <!-- 충돌 계산용 -->
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.2 0.8 0.4"/>
+      </geometry>
+    </collision>
+
+    <!-- RViz에서 보이게만 -->
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.2 0.8 0.4"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.6 0.6 0.6 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="${name}_joint" type="fixed">
+    <parent link="${parent}"/>
+    <child  link="${name}_link"/>
+    <origin xyz="${xyz}" rpy="${rpy}"/>
+  </joint>
+
+</xacro:macro>
+
+</robot>

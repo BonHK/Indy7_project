@@ -26,7 +26,8 @@
   <arg name="debug" default="false"/>
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" default="worlds/empty.world"/>
+    <!-- <arg name="world_name" default="worlds/empty.world"/> -->
+    <arg name="world_name" default="$(find indy_gazebo)/worlds/indy_table.world"/>
     <arg name="debug" value="$(arg debug)" />
     <arg name="gui" value="$(arg gui)" />
     <arg name="paused" value="$(arg paused)"/>

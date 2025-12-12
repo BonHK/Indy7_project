@@ -8,7 +8,7 @@
 	<arg name="sim_gazebo"  default="false"/> <!--is sim gazebo?-->
 	<arg name="joint_state" default="true"/> <!--need joint state? -->
 
-	<param name="robot_description" command="$(find xacro)/xacro --inorder '$(find indy_description)/urdf/indy.urdf.xacro'
+	<param name="robot_description" command="$(find xacro)/xacro --inorder '$(find indy_description)/urdf/indy_with_table.xacro'
 		prefix:=$(arg prefix)
 		name:=$(arg name)
 		indy_type:=$(arg indy_type)
