@@ -29,9 +29,9 @@ roslaunch indy_moveit moveit_gazebo.launch
 
 ### Added files
 
-* robotiq full file
+* robotiq full files
 
-* Robot + Table + robotiq_85_gripper description
+* Robot + Work table + robotiq_85_gripper description
     * `indy_description/urdf/indy_with_table_and_gripper.xacro`
 
 * Gripper self-collision definition
@@ -50,7 +50,6 @@ roslaunch indy_moveit moveit_gazebo.launch
 ```
 roslaunch indy_gazebo indy_gazebo.launch
 roslaunch indy_moveit moveit_gazebo.launch
-
 ```
 
 * Yaml file loading
@@ -58,14 +57,12 @@ roslaunch indy_moveit moveit_gazebo.launch
 ```
 rosparam load robotiq_85_controller.yaml
 rosrun controller_manager spawner gripper_controller
-
 ```
 
 * Gripper motion(0 ~ 0.80285)
 ```
 close: rostopic pub /gripper_controller/command std_msgs/Float64 “data: 0.8”
 open: rostopic pub /gripper_controller/command std_msgs/Float64 “data: 0.0”
-
 ```
 
 <img width="2880" height="1800" alt="Image" src="https://github.com/user-attachments/assets/60da30b4-0e15-4eb7-9c3c-d672d7f800f0" />
